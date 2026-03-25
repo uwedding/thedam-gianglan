@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="author" content="Biihappy">
+    <title>Thế Đam 💗 Giang Lan</title>
+    <meta name="description"
+        content="Thế Đam &amp; Giang Lan - Sự hiện diện của quý khách là niềm vinh dự của gia đình chúng tôi">
+    <meta name="keywords" content="Wedding, Wedding website, Website đám cưới, Tạo website đám cưới miễn phí">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="application-name" content="iWedding">
+    <meta property="og:site_name" content="Thế Đam &amp; Giang Lan">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Thế Đam 💗 Giang Lan">
+    <meta property="og:image" content="https://raw.githubusercontent.com/uwedding/my-images/main/thedam-gianglan.jpg">
+    <meta property="og:description" content="Sự hiện diện của quý khách là niềm vinh dự của gia đình chúng tôi" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/uwedding/my-images/main/thedam-gianglan.jpg" />
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/uwedding/my-images/main/thedam-gianglan.jpg" />
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/uwedding/my-images/main/thedam-gianglan.jpg" />
+    <link rel="apple-touch-icon-precomposed"
+        href="https://raw.githubusercontent.com/uwedding/my-images/main/thedam-gianglan.jpg" />
+    <meta name="msapplication-TileImage"
+        content="https://raw.githubusercontent.com/uwedding/my-images/main/thedam-gianglan.jpg" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jura:wght@300&family=MonteCarlo&family=Tourney:wght@100&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://marriage.iwedding.info/invitation/style.css?v=202503203">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Coiny&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@100&display=swap"
+        rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9L0ZFE1PJ11"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-K9L0ZFE1PJ11');</script>
+    <link rel="stylesheet" href="https://marriage.iwedding.info/common/sweetalert2/sweetalert2.min.css?v=20241201">
+    <script src="https://marriage.iwedding.info/common/sweetalert2/sweetalert2.all.min.js?v=20241201"></script>
+    <link rel="stylesheet" href="https://marriage.iwedding.info/common/tourguidejs/tour.min.css?v=20241201">
+    <script src="./js/tour.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</head>
+
+<body>
+    <style>
+        .modal-backdrop {
+            z-index: 100010 !important;
+        }
+
+        .modal {
+            z-index: 100011 !important;
+        }
+
+        .modal-dialog {
+            padding: 1rem !important;
+        }
+
+        .tg-backdrop-animate {
+            cursor: pointer;
+        }
+
+        .tg-backdrop.rounded-pill {
+            border-radius: 50px !important;
+        }
+
+        .tg-backdrop {
+            -moz-box-shadow: rgba(33, 33, 33, .8) 0 0 1px 2px, rgba(33, 33, 33, .8) 0 0 0 200vh;
+            -webkit-box-shadow: rgba(33, 33, 33, .8) 0 0 1px 2px, rgba(33, 33, 33, .8) 0 0 0 200vh;
+            box-shadow: rgba(33, 33, 33, .8) 0 0 1px 2px, rgba(33, 33, 33, .8) 0 0 0 200vh;
+        }
+
+        .tg-dialog .tg-dialog-header .tg-dialog-title {
+            text-transform: uppercase;
+        }
+
+        .tg-dialog .tg-dialog-header {
+            align-items: start;
+        }
+
+        .tg-dialog .tg-dialog-footer button.tg-dialog-btn {
+            padding: 5px 10px;
+            border: 2px solid #212529;
+            color: #fff;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: .82rem;
+            white-space: nowrap;
+            background: #212529;
+            min-width: 100px;
+        }
+
+        .tg-dialog .tg-dialog-footer button.tg-dialog-btn:hover {
+            color: #fff;
+            border: 2px solid #383b40;
+            outline: none;
+            box-shadow: none;
+            background: #383b40;
+        }
+
+        div:where(.swal2-container) div:where(.swal2-popup) {
+            max-width: 90%;
+        }
+
+        body.swal2-height-auto {
+            height: 100% !important;
+        }
+    </style>
+    <style>
+        .page_loader2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #fae1dd;
+            z-index: 100013;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .invitation-preload-container {
+            position: relative;
+        }
+
+        .invitation-valentines {
+            position: relative;
+            top: 50px;
+            cursor: pointer;
+            animation: up 3s linear infinite;
+        }
+
+        @keyframes up {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        .invitation-preload-envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #f08080;
+        }
+
+        .invitation-preload-envelope:before {
+            background-color: #f08080;
+            content: "";
+            position: absolute;
+            width: 212px;
+            height: 212px;
+            transform: rotate(45deg);
+            top: -105px;
+            left: 44px;
+            border-radius: 30px 0 0 0;
+        }
+
+        .invitation-preload-card {
+            position: absolute;
+            background-color: #eae2b7;
+            width: 270px;
+            height: 170px;
+            top: 5px;
+            left: 15px;
+            box-shadow: -5px -5px 100px rgba(0, 0, 0, 0.4);
+        }
+
+        .invitation-preload-card:before {
+            content: "";
+            position: absolute;
+            border: 2px solid #003049;
+            border-style: double;
+            width: 240px;
+            height: 140px;
+            left: 12px;
+            top: 12px;
+        }
+
+        .invitation-text span {
+            font-family: "Coiny";
+        }
+
+        .invitation-text {
+            position: absolute;
+            font-family: "Roboto";
+            font-size: 19px;
+            text-align: center;
+            line-height: 25px;
+            top: 23px;
+            color: #003049;
+            padding: 0 6px;
+            width: 240px;
+            left: 12px;
+            font-weight: 100;
+        }
+
+        .invitation-preload-heart {
+            height: 30px;
+            margin: 0 10px;
+            position: relative;
+            top: 110px;
+            left: 105px;
+            width: 30px;
+        }
+
+        .invitation-hearts {
+            position: absolute;
+        }
+
+        .invitation-one,
+        .invitation-two,
+        .invitation-three,
+        .invitation-four,
+        .invitation-five {
+            background-color: red;
+            display: inline-block;
+            height: 10px;
+            margin: 0 10px;
+            position: relative;
+            transform: rotate(-45deg);
+            width: 10px;
+            top: 50px;
+        }
+
+        .invitation-one:before,
+        .invitation-one:after,
+        .invitation-two:before,
+        .invitation-two:after,
+        .invitation-three:before,
+        .invitation-three:after,
+        .invitation-four:before,
+        .invitation-four:after,
+        .invitation-five:before,
+        .invitation-five:after {
+            content: "";
+            background-color: red;
+            border-radius: 50%;
+            height: 10px;
+            position: absolute;
+            width: 10px;
+        }
+
+        .invitation-one:before,
+        .invitation-two:before,
+        .invitation-three:before,
+        .invitation-four:before,
+        .invitation-five:before {
+            top: -5px;
+            left: 0;
+        }
+
+        .invitation-one:after,
+        .invitation-two:after,
+        .invitation-three:after,
+        .invitation-four:after,
+        .invitation-five:after {
+            left: 5px;
+            top: 0;
+        }
+
+        .invitation-one {
+            left: 10px;
+            animation: heart 1s ease-out infinite;
+        }
+
+        .invitation-two {
+            left: 30px;
+            animation: heart 2s ease-out infinite;
+        }
+
+        .invitation-three {
+            left: 50px;
+            animation: heart 1.5s ease-out infinite;
+        }
+
+        .invitation-four {
+            left: 70px;
+            animation: heart 2.3s ease-out infinite;
+        }
+
+        .invitation-five {
+            left: 90px;
+            animation: heart 1.7s ease-out infinite;
+        }
+
+        @keyframes heart {
+            0% {
+                transform: translateY(0) rotate(-45deg) scale(0.3);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-150px) rotate(-45deg) scale(1.3);
+                opacity: 0.5;
+            }
+        }
+
+        .invitation-front {
+            position: absolute;
+            border-right: 180px solid #f4978e;
+            border-top: 95px solid transparent;
+            border-bottom: 100px solid transparent;
+            left: 120px;
+            top: 5px;
+            width: 0;
+            height: 0;
+            z-index: 10;
+        }
+
+        .invitation-front:before {
+            position: absolute;
+            content: "";
+            border-left: 300px solid #f8ad9d;
+            border-top: 195px solid transparent;
+            left: -120px;
+            top: -95px;
+            width: 0;
+            height: 0;
+        }
+
+        .invitation-front .logo {
+            width: 115px;
+            position: absolute;
+            left: -95px;
+            top: 50px;
+            color: #fff;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .invitation-shadow {
+            position: absolute;
+            width: 330px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            top: 265px;
+            left: -15px;
+            animation: scale 3s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes scale {
+
+            0%,
+            100% {
+                transform: scaleX(1);
+            }
+
+            50% {
+                transform: scaleX(0.85);
+            }
+        }
+
+        .wedding-image {
+            width: auto !important;
+            height: auto !important;
+            max-height: fit-content;
+        }
+
+        .loading {
+            z-index: 9999999;
+        }
+
+        .loading-page {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            top: 0;
+            left: 0;
+            z-index: 9999999;
+        }
+
+        .loading-page {
+            background: #0d0d0d;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-page .counter {
+            text-align: center;
+        }
+
+        .loading-page .counter p {
+            font-size: 40px;
+            font-weight: 100;
+            color: #f60d54;
+            margin-bottom: 0;
+        }
+
+        .loading-page .counter h1 {
+            color: white;
+            font-size: 60px;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: -10px;
+        }
+
+        .loading-page .counter hr {
+            background: #f60d54;
+            border: none;
+            height: 1px;
+        }
+
+        .loading-page .counter {
+            position: relative;
+            width: 300px;
+        }
+
+        .loading-page .counter h1.abs {
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .loading-page .counter .color {
+            width: 0px;
+            overflow: hidden;
+            color: #f60d54;
+        }
+
+        .invitation-front {
+            z-index: 10;
+        }
+
+        .invitation-front:before {
+            z-index: 12;
+        }
+
+        .invitation-preload-card:before {
+            border: 2px solid #5c1921;
+        }
+
+        .invitation-front .logo {
+            z-index: 13;
+        }
+    </style>
+    <img src="https://cdn.biihappy.com/ziiweb/website/672819c4cbc6d03c42027b4d/84c1dfaa5f5a019745c999130e1a8faf.jpeg"
+        style="display:none;" />
+    <div class="invitation-container">
+        <div style="height: 100%;margin: 10px;">
+            <canvas class="invitation-card" id="invitation-card"></canvas>
+        </div>
+        <div style="height: 100%;margin: 10px;">
+            <canvas class="invitation-card" id="invitation-card-2"></canvas>
+        </div>
+    </div>
+    <div id="page_loader2" class="page_loader2">
+        <div class="invitation-preload-container">
+            <div class="invitation-valentines">
+                <img src="https://marriage.iwedding.info/invitation/wedding_flower.png"
+                    style="position: absolute;top: 88px;width: 200px;right: -90px;z-index: 11;transform: rotate(-28deg);" />
+                <div class="invitation-preload-envelope"></div>
+                <div class="invitation-front">
+                    <!-- <img class="logo" src="https://marriage.iwedding.info/invitation/logo-mw.svg" /> -->
+                    <span class="logo">uWedding</span>
+                    <img src="https://marriage.iwedding.info/invitation/wedding_icon.png"
+                        style="position: absolute;top: -37px;width: 91px;right: -170px;z-index: 11;" />
+                </div>
+                <div class="invitation-preload-card">
+                    <div class="invitation-text">
+                        <p style="margin-bottom: 5px;">Kính gửi: <span id="guest-name"></span></p>
+                        <p style="margin-bottom: 5px;font-size: 15px;">( Nhấn vào để mở thiệp )</p>
+                    </div>
+                    <div class="invitation-preload-heart">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#de7676"
+                            class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                        </svg>
+                    </div>
+                    <div class="invitation-hearts">
+                        <div class="invitation-one"></div>
+                        <div class="invitation-two"></div>
+                        <div class="invitation-three"></div>
+                        <div class="invitation-four"></div>
+                        <div class="invitation-five"></div>
+                    </div>
+                </div>
+                <div class="invitation-shadow"></div>
+            </div>
+        </div>
+    </div>
+    <div class="loading-page">
+        <div class="counter">
+            <p>Đang tải thiệp</p>
+            <h1>0%</h1>
+            <hr style="width: 0%;">
+        </div>
+    </div>
+    <div class="mouse-scroll" style="visibility:hidden;">
+        <div class="text">Kéo xuống</div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <script type="text/javascript" src="./js/static.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var loadingInterval = null;
+            var loadingCounter = 0;
+            var loadingC = 0;
+            loadingInterval = setInterval(function () {
+                $(".loading-page .counter h1").html(loadingC + "%");
+                $(".loading-page .counter hr").css("width", loadingC + "%");
+                loadingCounter++;
+                loadingC++;
+                if (loadingCounter == 96) {
+                    clearInterval(loadingInterval);
+                }
+            }, 100);
+            preLoader();
+
+            async function preLoader() {
+                await sleep(1000);
+                clearInterval(loadingInterval);
+                $(".loading-page .counter h1").html(100 + "%");
+                $(".loading-page .counter hr").css("width", 100 + "%");
+                setTimeout(function () {
+                    $(".loading-page").hide();
+                }, 400);
+                setTimeout(function () {
+                    $('.invitation-preload-card').stop().animate({
+                        top: '-90px'
+                    }, 'slow');
+                }, 800);
+                checkShowScrollMouseButton();
+            }
+
+            if ($('.invitation-preload-container').length) {
+                $('.invitation-preload-container').mouseenter(function () {
+                    $('.invitation-preload-card').stop().animate({
+                        top: '-90px'
+                    }, 'slow');
+                }).mouseleave(function () {
+                    $('.invitation-preload-card').stop().animate({
+                        top: 0
+                    }, 'slow');
+                });
+
+                $('.invitation-preload-container').click(function () {
+                    $('#page_loader2').fadeOut('slow');
+                    setTimeout(() => {
+                        $('.footer').show();
+                    }, 300);
+                    setTimeout(function () {
+                        if (isShowIntroModal) {
+                            tourGuideColor.start();
+                        }
+                    }, 2000);
+                });
+            }
+        });
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+    </script>
+    <div id="rsvpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Xác nhận tham dự</h2>
+            </div>
+            <div class="modal-body">
+                <form id="updateGuestForm" method="post">
+                    <div class="row">
+                        <input type="hidden" id="event_id" name="event_id" value="672819c4cbc6d03c42027b4711">
+                        <input type="hidden" id="guest_id" name="guest_id" value="67428211ca83abba270302b811">
+                        <div class="col-sm-6 col-12" style="margin-bottom: 10px;">
+                            <select class="form-select" name="attendance_status" id="attendance_status_id"
+                                style="margin-top: 4px;">
+                                <option value="">Bạn sẽ tham gia chứ?</option>
+                                <option value="1">Tôi sẽ tham gia</option>
+                                <option value="0">Chưa xác định trước được</option>
+                                <option value="2">Tôi không Tham gia được</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 col-12" style="margin-bottom: 10px;">
+                            <select class="form-select" name="attendance_status" id="plus_ones_id"
+                                style="margin-top: 4px;">
+                                <option value="">Bạn có người đi cùng không?</option>
+                                <option value="Đi một mình">Đi một mình</option>
+                                <option value="Đi cùng 1 người">Đi cùng 1 người</option>
+                                <option value="Đi cùng 2 người">Đi cùng 2 người</option>
+                                <option value="Đi cùng 3 người">Đi cùng 3 người</option>
+                                <option value="Đi cùng 4 người">Đi cùng 4 người</option>
+                                <option value="Đi cùng 5 người">Đi cùng 5 người</option>
+                            </select>
+                        </div>
+
+                        <div class="row-guest-questions">
+                        </div>
+                    </div>
+                    <div class="message-success" style="display: none;">
+                        <div class="form-message form-message-success">
+                            <svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                class="ng-scope">
+                                <title>F28A5059-2988-42E8-A07D-911419DD80B1</title>
+                                <desc>Created with sketchtool.</desc>
+                                <defs></defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Guest-List---Add-Inline-Dialogs"
+                                        transform="translate(-730.000000, -252.000000)" fill="#78CC61">
+                                        <g id="dialog" transform="translate(690.000000, 216.000000)">
+                                            <g id="message" transform="translate(40.000000, 26.000000)">
+                                                <path
+                                                    d="M8.5,10 C3.80553623,10 0,13.8055362 0,18.5 C0,23.1944638 3.80553623,27 8.5,27 C13.1944638,27 17,23.1944638 17,18.5 C17,13.8055362 13.1944638,10 8.5,10 Z M12.5538841,14.7117101 L13.5931014,15.7627536 C11.2406957,18.1151594 8.88878261,20.4670725 6.53686957,22.8194783 C5.50307246,21.7625217 4.45202899,20.7233043 3.40689855,19.6781739 L4.44611594,18.6384638 L6.53686957,20.7287246 L12.5538841,14.7117101 Z"
+                                                    id="icon-green-success"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span style="margin-left: 5px;"></span>
+                        </div>
+                    </div>
+                    <div class="message-error text-danger" style="display: none;color:red;">
+                        <div class="form-message form-message-error">
+                            <svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                class="ng-scope">
+                                <title>Page 1</title>
+                                <desc></desc>
+                                <defs></defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Group-6" transform="translate(0.000000, -2.000000)" fill="#71D9BC">
+                                        <path
+                                            d="M8.5,2 C3.79641481,2 0,5.79641481 0,10.5 C0,15.2035852 3.79641481,19 8.5,19 C13.2035852,19 17,15.2035852 17,10.5 C17,5.79641481 13.2035852,2 8.5,2 L8.5,2 Z M10,15.165872 C10,15.6130558 9.60377883,16 9.14587385,16 L7.854404,16 C7.39622117,16 7,15.6130558 7,15.165872 L7,9.83439935 C7,9.36577897 7.39622117,9 7.854404,9 L9.14587385,9 C9.60377883,9 10,9.38694422 10,9.83439935 L10,15.165872 Z M8.49124329,8 C7.67497633,8 7,7.32894118 7,6.5 C7,5.67082353 7.67497633,5 8.49124329,5 C9.32502367,5 10,5.67082353 10,6.5 C10,7.32894118 9.32502367,8 8.49124329,8 L8.49124329,8 Z"
+                                            id="Page-1"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span style="margin-left: 5px;"></span>
+                        </div>
+                    </div>
+
+                    <div class="action-btns">
+                        <button class="btn btn-dark btn-dark-1">Gửi phản hồi</button>
+
+                        <button type="button" class="btn btn-dark btn-dark-1 donate">Mừng cưới</button>
+                        <button type="button" class="btn btn-dark btn-dark-1 close">Bỏ qua</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="donate-modal" class="donate-modal modal">
+        <div class="donate-modal-content modal-content">
+            <div class="donate-modal-header modal-header">
+                <strong>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-coin" viewBox="0 0 16 16">
+                        <path
+                            d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                    </svg>
+                    <span>Hộp mừng cưới</span>
+                </strong>
+            </div>
+            <div id="bride" class="donate-modal-body modal-body">
+                <div class="donate-box">
+                    <div class="donate-card">
+                        <h3>Mừng cưới đến chú cô dâu</h3>
+                        <img class="qr-code-image" src="./images/qr2.jpg">
+                        <p>Ngân hàng: <strong>PVcom Bank</strong></p>
+                        <p>Tên tài khoản: <strong>GIANG THI LAN</strong></p>
+                        <p>Số tài khoản: <strong>102002426180</strong></p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="groom" class="donate-modal-body modal-body">
+                <div class="donate-box">
+                    <div class="donate-card">
+                        <h3>Mừng cưới đến chú rể</h3>
+                        <img class="qr-code-image" src="./images/qr1.jpg">
+                        <p>Ngân hàng: <strong>BIDV</strong></p>
+                        <p>Tên tài khoản: <strong>DO THE DAM</strong></p>
+                        <p>Số tài khoản: <strong>2611162905</strong></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer" style="display: none;">
+        <div class="container">
+            <div class="invitation-button">
+                <button class="btn btn-dark" id="btn-rsvp">Xác nhận tham dự</button>
+                <a class="a-bii-small-logo" href="/thiep.html"><img class="bii-small-logo"
+                        src="https://trinhtham.com/wp-content/uploads/2025/07/icon.png" /></a>
+                <a class="btn btn-dark" id="btn-website-info" href="/thiep.html" target="_blank">Thông tin cưới</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var params = new URLSearchParams(window.location.search);
+        const invitationInfo = {
+            'templateID': 'h4',
+            'groom_name': 'Đỗ Thế Đam',
+            'bride_name': 'Giang Thị Lan',
+            'groom_name_short': 'Thế Đam',
+            'bride_name_short': 'Giang Lan',
+            'groom_name_one': 'Đ',
+            'bride_name_one': 'L',
+            'guest_name': params.get("n") || params.get("name"),
+            'event_name': 'LỄ CƯỚI NHÀ NAM',
+            'event_time': '10:00',
+            'event_date': 'Thứ Bảy, NGÀY 02/05/2026',
+            'event_date_dot': '02.05.2026',
+            'venue_name': params.get("target") === "bride" ? "TƯ GIA NHÀ GÁI" : 'TƯ GIA NHÀ TRAI',
+            'event_address': params.get("target") === "bride" ? "Thôn Bắc Thịnh, xã Nam Thái Ninh, tỉnh Hưng Yên" : 'Thôn Bắc, xã Đông Thái Ninh, tỉnh Hưng Yên',
+        };
+
+        const biicore = { webroot: 'https://marriage.iwedding.info', coreSite: 'https://biihappy.com', webToken: '672819c4cbc6d03c42027b4d11' };
+
+        // Set guest name
+        var guestName = params.get("n") || params.get("name") || "Bạn + Người thương";
+        document.getElementById("guest-name").textContent = guestName;
+
+        // Show/hide bride/groom box based on target param
+        var target = params.get("target");
+        var brideBox = document.getElementById("bride");
+        var groomBox = document.getElementById("groom");
+        if (target === "bride") {
+            if (brideBox) brideBox.style.display = "block";
+            if (groomBox) groomBox.style.display = "none";
+        } else {
+            if (brideBox) brideBox.style.display = "none";
+            if (groomBox) groomBox.style.display = "block";
+        }
+    </script>
+    <script>
+        const tourGuideColor = new tourguide.TourGuideClient({
+            exitOnEscape: true,
+            exitOnClickOutside: true,
+            dialogZ: 2000,
+            backdropColor: false,
+            autoScroll: false,
+            showStepDots: true,
+            showButtons: true,
+            showStepProgress: true,
+            hideNext: false,
+            hidePrev: false,
+            autoScrollSmooth: false,
+            targetPadding: 10,
+            backdropClass: 'rounded-pill',
+            targetPadding: 10,
+            prevLabel: '< Trở về',
+            nextLabel: 'Xem tiếp >',
+            finishLabel: 'Đã hiểu',
+        });
+
+        tourGuideColor.addSteps([
+            {
+                content: "Click vào Button bên dưới để xác nhận tham dự sự kiện này.<br>Cảm ơn vì xác nhận của bạn giúp chúng tôi chuẩn bị tốt hơn!",
+                title: "Xác nhận tham dự",
+                target: "#btn-rsvp",
+                order: 1,
+                group: "",
+            },
+            {
+                content: "Click vào Button bên dưới để đi đến Website đám cưới, nơi thể hiện đầy đủ thông tin cưới và gửi lời chúc tốt đẹp đến họ nhé!",
+                title: "Thông tin cưới",
+                target: "#btn-website-info",
+                order: 2,
+                group: "",
+            }
+        ]);
+        const targetElementsTourGuide = ["#btn-rsvp", "#btn-website-info"];
+        $('.tg-backdrop-animate').click(function (event) {
+            const elementsAtPoint = document.elementsFromPoint(event.clientX, event.clientY);
+            targetElementsTourGuide.some(selector => {
+                const target = elementsAtPoint.find(el => el.matches(selector));
+                if (target) {
+                    $('body')[0].click();
+                    $(selector)[0].click();
+                    return true;
+                }
+                return false;
+            });
+        });
+    </script>
+</body>
+
+</html>
