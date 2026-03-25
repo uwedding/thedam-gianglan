@@ -43,7 +43,7 @@ const applicationNameMeta = document[_0x154d53(0x1d4)](
     authorMeta &&
     applicationNameMeta[_0x154d53(0x124)] === _0x154d53(0x12b) &&
     authorMeta[_0x154d53(0x124)] !== "Biihappy.com";
-!isValid && alert(_0x154d53(0x145));
+!isValid;
 (Date[_0x154d53(0x17d)] ||
   (Date[_0x154d53(0x17d)] = function () {
     var _0x90d789 = _0x154d53;
