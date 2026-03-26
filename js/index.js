@@ -20,6 +20,15 @@
 //   e.preventDefault();
 // });
 
+var btn = document.getElementById("btn-rsvp");
+var modal = document.getElementById("rsvpModal");
+
+btn.onclick = function () {
+  isShowIntroModal = false;
+  modal.style.display = "flex";
+};
+
+
 // Lưu form vào GG sheet
 
 const GOOGLE_SCRIPT_URL_THAM_DU =
