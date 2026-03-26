@@ -7476,7 +7476,7 @@ static-hero-s4
 
 /* 6.6 wpo-cta-section-s3 */
 .wpo-cta-section-s3 .wpo-cta-item h2 {
-  margin-bottom: 10px;
+  margin-bottom: -10px;
   margin-top: 0;
 }
 .wpo-cta-section-s3 .wpo-cta-item p {
