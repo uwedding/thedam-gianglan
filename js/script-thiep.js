@@ -1771,3 +1771,234 @@ $(document).on("click", ".qr-code-image", function () {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+window.addEventListener(
+  "load",
+  function () {
+    // checkShowScrollMouseButton();
+    // if (document.getElementById('page_loader')) {
+    // 	setTimeout(function(){
+    // 		document.getElementById('page_loader').style.display = 'none';
+    // 	},800);
+    // }
+
+    var modal = document.getElementById("rsvpModal");
+    var btn = document.getElementById("btn-rsvp");
+    var btnDonate = document.getElementsByClassName("donate")[0];
+    var modalDonate = document.getElementById("donate-modal");
+    var span = document.getElementsByClassName("close")[0];
+    var params = new URLSearchParams(window.location.search);
+    var name =
+      params.get("n") ||
+      params.get("name") ||
+      localStorage.getItem("guest_name");
+    var guestName =
+      localStorage.getItem("guest_target") === "bride"
+        ? "Bạn cô dâu"
+        : "Bạn chú rể";
+
+    btn.onclick = function () {
+      isShowIntroModal = false;
+      modal.style.display = "flex";
+    };
+    if (btnDonate)
+      btnDonate.onclick = function () {
+        modalDonate.style.display = "flex";
+        modal.style.display = "none";
+      };
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+
+      if (event.target == modalDonate) {
+        modalDonate.style.display = "none";
+      }
+    };
+
+    if ((hash = window.location.hash == "#confirm")) {
+      setTimeout(function () {
+        btn.click();
+      }, 10);
+    }
+
+    $(document).on(
+      "click",
+      "#donate-modal .cryptos-box-view-close",
+      function () {
+        let parent = $(this).parents(".donate-card");
+        parent.find(".cryptos-box-view").hide();
+      },
+    );
+
+    $(document).on("submit", "#updateGuestForm", function (e) {
+      e.preventDefault();
+      var _this = $(this);
+      $(".message-success, .message-error").hide();
+      $("#attendance_status_id").removeClass("boder-danger");
+      $("#plus_ones_id").removeClass("boder-danger");
+      $(this).find('button[type="submit"]').attr("disabled", true);
+      var url =
+        "https://script.google.com/macros/s/AKfycbyGY7HFWc6QuHsHeSZdhD0AnkBo03wd5p3tlRDXBfjQcEdMlsIo65Vb_dVAaboHVNlY/exec";
+      let attendance_status = $("#attendance_status_id").val();
+      let plus_ones = $("#plus_ones_id").val();
+      let guest_id = $("#guest_id").val();
+      let event_id = $("#event_id").val();
+      let check_guest_questions = false;
+      let guest_questions = [];
+      if (!attendance_status && !plus_ones) {
+        $(".message-error")
+          .show()
+          .find("span")
+          .html("Vui lòng xác nhận thông tin trên.");
+        $("#attendance_status_id").addClass("boder-danger");
+        $("#plus_ones_id").addClass("boder-danger");
+        check_guest_questions = true;
+      }
+      if (!attendance_status) {
+        $(".message-error")
+          .show()
+          .find("span")
+          .html("Vui lòng xác nhận thông tin trên.");
+        $("#attendance_status_id").addClass("boder-danger");
+        check_guest_questions = true;
+      }
+      if (attendance_status == 1 && !plus_ones) {
+        $(".message-error")
+          .show()
+          .find("span")
+          .html("Vui lòng xác nhận thông tin trên.");
+        $("#plus_ones_id").addClass("boder-danger");
+        check_guest_questions = true;
+      }
+
+      $(".row-guest-questions")
+        .find(".form-control")
+        .each(function (index, element) {
+          let isRequired = $(element).data("is-required");
+          index += 1;
+          let id = "#guest_question_index_" + index;
+          let value = $(id).val();
+          let guest_question = {
+            type: $(id).data("type"),
+            question_id: $(id).data("question-id"),
+            result: value,
+          };
+          guest_questions.push(guest_question);
+          if (!value && isRequired == 1 && !$(id).prop("disabled")) {
+            check_guest_questions = true;
+            $(".message-error")
+              .show()
+              .find("span")
+              .html("Vui lòng xác nhận thông tin trên.");
+            $(id).addClass("boder-danger");
+          } else {
+            $(id).removeClass("boder-danger");
+          }
+        });
+
+      if (check_guest_questions) {
+        return false;
+      }
+
+      $.ajax({
+        type: "POST",
+        url: url,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        data: JSON.stringify({
+          name: name || "Bạn + Người thương",
+          numGuests: plus_ones,
+          attend:
+            attendance_status == 1
+              ? "Tôi sẽ tham gia"
+              : attendance_status == 0
+                ? "Chưa xác định trước được"
+                : "Tôi không Tham gia được",
+          guest: guestName,
+        }),
+        success: function (res) {
+          if (res.error) {
+            $(".message-error")
+              .show()
+              .find("span")
+              .html("Có lỗi xảy ra. Vui lòng thử lại.");
+            $(".message-success").hide();
+            $("#attendance_status_id").removeClass("boder-danger");
+            $("#plus_ones_id").removeClass("boder-danger");
+          } else {
+            $(".message-success")
+              .show()
+              .find("span")
+              .html("Xác nhận thành công!");
+            $(".message-error").hide();
+            let showIcon = "success";
+            modal.style.display = "none";
+            Swal.fire({
+              title: "Xác nhận thành công!",
+              text: "Cảm ơn vì Xác Nhận của bạn giúp chúng tôi chuẩn bị tốt hơn!",
+              icon: showIcon,
+              confirmButtonText: "Đóng",
+              confirmButtonColor: "#212529",
+            });
+          }
+        },
+        complete: function () {
+          _this
+            .find('button[type="submit"]')
+            .removeAttr("disabled")
+            .find(".spinner-grow")
+            .remove();
+        },
+      });
+    });
+
+    const plusOnesID = document.getElementById("plus_ones_id");
+    document
+      .getElementById("attendance_status_id")
+      .addEventListener("change", (event) => {
+        if (event.target.value == 1) {
+          plusOnesID.disabled = false;
+          checkAttendanceStatus(true);
+        } else {
+          $(".message-error").hide();
+          plusOnesID.classList.remove("boder-danger");
+          plusOnesID.disabled = true;
+          plusOnesID.options.selectedIndex = 0;
+          checkAttendanceStatus(false);
+        }
+      });
+
+    function checkAttendanceStatus(status) {
+      $(".row-guest-questions")
+        .find(".form-control")
+        .each(function (index) {
+          index += 1;
+          let id = "guest_question_index_" + index;
+          let $element = $("#" + id);
+          if (!status) {
+            $element.prop("disabled", true);
+            $element.removeClass("boder-danger");
+            switch ($element.prop("tagName")) {
+              case "TEXTAREA":
+                $element.val("");
+                break;
+              case "SELECT":
+                $element.val($element.find("option:first").val());
+                break;
+              default:
+                $element.val("");
+                break;
+            }
+          } else {
+            $element.prop("disabled", false);
+          }
+        });
+    }
+  },
+  false,
+);

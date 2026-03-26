@@ -323,13 +323,16 @@ setInterval(function () {
 }, 1000);
 
 window.addEventListener("DOMContentLoaded", function () {
-  // Lấy tham số name từ URL
-  const params = new URLSearchParams(window.location.search);
-  const name = params.get("n") || params.get("name");
-  // Hiển thị vào div PARAGRAPH94 nếu có giá trị
-  if (name) {
-    const el = document.querySelector("#w-amfdze1w .name");
-    if (el) el.textContent = name;
+  const guestTarget = localStorage.getItem("guest_target");
+
+  var brideBox = document.getElementById("bride");
+  var groomBox = document.getElementById("groom");
+  if (guestTarget === "bride") {
+    if (brideBox) brideBox.style.display = "block";
+    if (groomBox) groomBox.style.display = "none";
+  } else {
+    if (brideBox) brideBox.style.display = "none";
+    if (groomBox) groomBox.style.display = "block";
   }
 });
 

@@ -491,7 +491,7 @@
     </div>
     <div class="loading-page">
         <div class="counter">
-            <p>Đang tải thiệp</p>
+            <p>Loading</p>
             <h1>0%</h1>
             <hr style="width: 0%;">
         </div>
@@ -707,6 +707,20 @@
     </div>
     <script type="text/javascript">
         var params = new URLSearchParams(window.location.search);
+        var target = params.get("target");
+
+        // Lưu vào localStorage
+        localStorage.setItem("guest_name", name);
+        localStorage.setItem("guest_target", target || "groom");
+
+        // Append current URL params to thiep.html links
+        var extraQuery = window.location.search;
+        if (extraQuery && extraQuery.length > 1) {
+            document.querySelectorAll('a[href="/thiep.html"]').forEach(function (link) {
+                link.href = "/thiep.html" + extraQuery;
+            });
+        }
+
         const invitationInfo = {
             'templateID': 'h4',
             'groom_name': 'Đỗ Thế Đam',
@@ -764,13 +778,13 @@
         });
 
         tourGuideColor.addSteps([
-            {
-                content: "Click vào Button bên dưới để xác nhận tham dự sự kiện này.<br>Cảm ơn vì xác nhận của bạn giúp chúng tôi chuẩn bị tốt hơn!",
-                title: "Xác nhận tham dự",
-                target: "#btn-rsvp",
-                order: 1,
-                group: "",
-            },
+            // {
+            //     content: "Click vào Button bên dưới để xác nhận tham dự sự kiện này.<br>Cảm ơn vì xác nhận của bạn giúp chúng tôi chuẩn bị tốt hơn!",
+            //     title: "Xác nhận tham dự",
+            //     target: "#btn-rsvp",
+            //     order: 1,
+            //     group: "",
+            // },
             {
                 content: "Click vào Button bên dưới để đi đến Website đám cưới, nơi thể hiện đầy đủ thông tin cưới và gửi lời chúc tốt đẹp đến họ nhé!",
                 title: "Thông tin cưới",
